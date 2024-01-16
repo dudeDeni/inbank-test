@@ -1,9 +1,15 @@
+@import "./abstracts/variables";
+// Import our map amends
+@import "./abstracts/map-amends";
+
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
-// Variable overrides first
-// $primary: #900;
-// $enable-shadows: true;
-// $prefix: "mo-";
 
-// Then import Bootstrap
-// @import "../node_modules/bootstrap/scss/bootstrap";
+// Import vars
+@import "bootstrap/scss/variables";
+
+body {
+  background-color: #FDFDFD;
+  font-family: Open Sans;
+  
+}

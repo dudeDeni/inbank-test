@@ -1,0 +1,19 @@
+// Own map
+$custom-colors: (
+  "primary":    #2B0A57,
+  "secondary":  #3A156C,
+  // "success":    $success,
+  // "info":       $info,
+  // "warning":    $warning,
+  // "danger":     $danger,
+  // "light":      $light,
+  // "dark":       $dark
+);
+
+$custom-container-max-widths: (
+  xxl: 1440px
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$container-max-widths: map-merge($container-max-widths, $custom-container-max-widths);
