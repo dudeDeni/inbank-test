@@ -25,7 +25,7 @@ $container-max-widths: (
 );
 
 // Carousel overrides
-$carousel-transition-duration: .6s;
+$carousel-transition-duration: .1s;
 $carousel-transition: transform $carousel-transition-duration ease;
 $carousel-indicator-transition: opacity .1s ease;
 
@@ -33,7 +33,8 @@ $carousel-control-transition: opacity .1s ease;
 $carousel-control-icon-width: 2rem;
 $carousel-control-width: 9%;
 $carousel-control-opacity:1;
-$carousel-control-hover-opacity:1;  
+$carousel-control-hover-opacity:0.1;  
+$carousel-transition: transform $carousel-transition-duration ease-in-out;
 
 $carousel-control-prev-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#FDFDFD'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>");
 $carousel-control-next-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#2B0A57'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
