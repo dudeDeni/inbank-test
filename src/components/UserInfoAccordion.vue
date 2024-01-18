@@ -12,7 +12,7 @@
           <input type="phone" v-model.number="userData.phone" id="phone" class="col-5 form-control bg-transparent border-0 border-bottom border-grey p-0 rounded-0">
         </div>
         <div class="col-3 p-0">
-          <input type="email" v-model.number="userData.email" id="email" class="col form-control bg-transparent border-0 border-bottom border-grey p-0 rounded-0">
+          <input type="email" v-model.email="userData.email" id="email" class="col form-control bg-transparent border-0 border-bottom border-grey p-0 rounded-0">
         </div>
         <div class="col-1 ">
           <button class="bg-primary rounded-circle border-0" style="width: 31px;height: 31px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" @click="editForm()"><i class="bi-chevron-right text-textWhite"></i></button>

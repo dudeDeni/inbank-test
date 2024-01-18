@@ -7,46 +7,8 @@
       <UserInfoAccordion />
 
       <!-- Personal information section -->
-      <div class="mb-3">
-        <label>Personal Information</label><br>
-        <label for="country" class="form-label">Country</label>
-        <select id="country" class="form-select" v-model="formData.country">
-          <option selected>Choose...</option>
-          <!-- Populate with actual country options -->
-        </select>
-      </div>
-
-      <div v-if="isFormManual" class="row g-3 mb-3">
-        <div class="col-md">
-          <label for="city" class="form-label">City / Parish</label>
-          <input type="text" id="city" class="form-control" v-model="formData.city">
-        </div>
-        <div class="col-md">
-          <label for="county" class="form-label">County</label>
-          <input type="text" id="county" class="form-control" v-model="formData.county">
-        </div>
-      </div>
-
-      <div class="row g-3 mb-3">
-        <div class="col-md">
-          <label for="street" class="form-label">Street</label>
-          <input type="text" id="street" class="form-control" v-model="formData.street">
-        </div>
-
-        <div class="col-md-4">
-          <label for="house" class="form-label">House</label>
-          <input type="text" id="house" class="form-control" v-model="formData.house">
-        </div>
-
-        <div class="col-md-4">
-          <label for="apartment" class="form-label">Apartment</label>
-          <input type="text" id="apartment" class="form-control" v-model="formData.apartment">
-        </div>
-        <div class="col-md-4">
-          <label for="postalCode" class="form-label">Postal Code</label>
-          <input type="text" id="postalCode" class="form-control" v-model="formData.postalCode">
-        </div>
-      </div>
+      <label>Personal Information</label><br>
+      
 
       <CheckboxManual @check-manually="toggleManualFields"/>
 
@@ -70,8 +32,9 @@
 
 <script setup>
 import CheckboxManual from './CheckboxManual.vue';
-import LoanCarousel from './LoanCarousel.vue'
-import UserInfoAccordion from './UserInfoAccordion.vue'
+import LoanCarousel from './LoanCarousel.vue';
+import UserInfoAccordion from './UserInfoAccordion.vue';
+import Input from './reusables/Input.vue';
 import { ref } from 'vue'
 
 const formData = ref({
