@@ -10,9 +10,7 @@
     </div>
   </nav>
 </template>
-<script setup>
-//
-</script>
+
 <style scoped>
 nav {
   margin-top: 1.38rem;

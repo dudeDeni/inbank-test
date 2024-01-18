@@ -28,13 +28,13 @@
         <div id="collapseOne" class="py-2 accordion-collapse collapse show" data-bs-parent="#accordionExample">
           <div class="row m-0 text-center ">
             <div class="col">
-              {{userData.id_code}}
+              <i class="bi bi-person-bounding-box mx-1"></i>{{userData.id_code}}
             </div>
             <div class="col">
-              +{{userData.phone}}
+              <i class="bi bi-telephone mx-1"></i>+{{userData.phone}}
             </div>
             <div class="col">
-              {{userData.email}}
+              <i class="bi bi-envelope mx-1"></i>{{userData.email}}
             </div>
           </div>
         </div>
@@ -59,5 +59,7 @@ const editForm = () => {
 
 </script>
 <style scoped>
-
+input:hover {
+  border-bottom: #2B0A57;
+}
 </style>

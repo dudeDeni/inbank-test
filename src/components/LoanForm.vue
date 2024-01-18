@@ -1,9 +1,8 @@
 <template>
   <div class="loan-form">
-    <LoanCarousel />
-
     <!-- Form starts here -->
     <form @submit.prevent="submitForm">
+      <LoanCarousel />
       <!-- User information display -->
       <UserInfoAccordion />
 
@@ -17,7 +16,7 @@
         </select>
       </div>
 
-      <div class="row g-3 mb-3">
+      <div v-if="isFormManual" class="row g-3 mb-3">
         <div class="col-md">
           <label for="city" class="form-label">City / Parish</label>
           <input type="text" id="city" class="form-control" v-model="formData.city">
@@ -49,10 +48,7 @@
         </div>
       </div>
 
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="manualAddress" v-model="formData.manualAddress">
-        <label class="form-check-label" for="manualAddress">Add address manually</label>
-      </div>
+      <CheckboxManual @check-manually="toggleManualFields"/>
 
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="pepCheck" v-model="formData.pepCheck">
@@ -73,6 +69,7 @@
 </template>
 
 <script setup>
+import CheckboxManual from './CheckboxManual.vue';
 import LoanCarousel from './LoanCarousel.vue'
 import UserInfoAccordion from './UserInfoAccordion.vue'
 import { ref } from 'vue'
@@ -89,6 +86,12 @@ const formData = ref({
   pepCheck: '',
   beneficiaryCheck: ''
 })
+
+const isFormManual = ref(false);
+
+const toggleManualFields = (isChecked) => {
+  isFormManual.value = isChecked
+}
 
 </script>
 
