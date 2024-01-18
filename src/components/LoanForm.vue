@@ -2,13 +2,24 @@
   <div class="loan-form">
     <!-- Form starts here -->
     <form @submit.prevent="submitForm">
+      <!-- Loan amount and duration -->
       <LoanCarousel />
       <!-- User information display -->
       <UserInfoAccordion />
 
       <!-- Personal information section -->
-      <label class="mb-4 mx-3">Personal Information</label>
-      <ManualForm />
+      <div class="mb-4 mx-3">Personal Information</div>
+      <ManualForm
+        :country="formData.country"
+        :city="formData.city"
+        :county="formData.county"
+        :town-ship="formData.townShip"
+        :street="formData.street"
+        :house="formData.house"
+        :apartment="formData.apartment"
+        :postal-code="formData.postalCode"
+        @update="updateFields($event)"
+      />
       <!-- <OptionForm /> -->
 
       <CheckboxManual @check-manually="toggleManualFields"/>
@@ -40,22 +51,27 @@ import { ref } from 'vue'
 import OptionForm from './forms/OptionForm.vue';
 
 const formData = ref({
-  country: '',
-  city: '',
-  county: '',
-  street: '',
-  house: '',
-  apartment: '',
-  postalCode: '',
-  manualAddress: '',
-  pepCheck: '',
-  beneficiaryCheck: ''
+  country: 'World',
+  city: null,
+  county: null,
+  townShip: null,
+  street: null,
+  house: null,
+  apartment: null,
+  postalCode: null,
+  manualAddress: null,
+  pepCheck: null,
+  beneficiaryCheck: null
 })
 
 const isFormManual = ref(false);
 
 const toggleManualFields = (isChecked) => {
   isFormManual.value = isChecked
+}
+
+const updateFields = (payload) => {
+  formData.value[payload.target] = payload.value
 }
 
 </script>

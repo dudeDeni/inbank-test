@@ -1,25 +1,27 @@
 <template>
   <div class="position-relative w-100">
-    <div :class="labelClass">
+    <div v-if="label" :class="labelClass">
       <label :for="id" class="fs-6"> {{ label }}</label>
     </div>
     <input 
       :type="type" 
       :id="id" 
       :value="modelValue" 
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="update($event.target.value)"
       v-bind="$attrs"
       class="form-control"
       @focus="toggle('focus')"
       @blur="toggle('blur')"
+      :autocomplete="type"
     />
   </div>
 </template>
 <script setup>
 import { ref, computed } from 'vue'
+
 const props = defineProps({
   label: {
-    type: String,
+    type: [String, Boolean],
     default: '',
   },
   type: {
@@ -31,19 +33,27 @@ const props = defineProps({
     default: '',
   },
   modelValue: {
-    type: String,
+    type: [String, null],
     default: '',
   }
 })
 
-const isActive = ref(false)
+const emit = defineEmits(['update'])
+
+const isActive = ref(props.modelValue ? true : false)
+
+const update = (value) => {
+  emit('update', value)
+}
 
 const toggle = (event) => {
   if (event == 'focus') {
     isActive.value = true
   }
   else {
-    isActive.value = false
+    if (!props.modelValue) {
+      isActive.value = false
+    }
   }
 }
 

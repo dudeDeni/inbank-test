@@ -9,7 +9,7 @@
           </button>
           <div class="row align-items-center m-0 px-0">
             <div class="col-6 d-flex justify-content-end">
-              <label class="fw-light lh-lg fs-5">Your loan application</label>
+              <div class="fw-light lh-lg fs-5">Your loan application</div>
             </div>
             <div class="col">
               <div class="fw-lighter d-flex">{{selectedAmount}}<span class="" style="font-size: 14px;">€</span>&nbsp;/<span class="fw-lighter">&nbsp;{{selectedMonths}}&nbsp;months</span></div>
@@ -22,7 +22,7 @@
             <div class="col-4 p-0">
               <div class="fw-light lh-base fs-6 row text-end">
                 <div class="col-5 px-0 position-relative">
-                  <label class="fw-light lh-base fs-6 d-flex align-items-center justify-content-end">Amount</label>
+                  <div class="fw-light lh-base fs-6 d-flex align-items-center justify-content-end">Amount</div>
                   <span v-show="hasError" class="text-danger position-absolute w-100 bottom-20 start-0" style="font-size: 10px;">Out of range</span>
                   <span v-show="rangeAmount" class="text-textWhite position-absolute w-100 bottom-20 start-0" style="font-size: 10px;">200 - 10 000 €</span>
                 </div>
@@ -58,10 +58,10 @@
             </div>
             <div class="col-3 p-0">
               <div class="fw-light lh-base fs-6 row text-end">
-                <label class="col-5 fw-light lh-base fs-6 d-flex align-items-center">Duration</label>
+                <label for="duration" class="col-5 fw-light lh-base fs-6 d-flex align-items-center">Duration</label>
                 <div class="btn-group col-6 offset-1 p-0">
                   <div class="row p-0">
-                    <input type="text" v-model="selectedMonths" id="amount" class="col form-control bg-transparent border-0 border-bottom border-textWhite text-textWhite p-0 rounded-0" style="width: 20px;">
+                    <input type="text" v-model="selectedMonths" id="duration" class="col form-control bg-transparent border-0 border-bottom border-textWhite text-textWhite p-0 rounded-0" style="width: 20px;">
                     <div class="col border-bottom border-textWhite p-0">months</div>
                   </div>
                   <div class="mx-2 dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-chevron-down"></i></div>
@@ -79,7 +79,7 @@
             </div>
             <div class="col-4 p-0">
               <div class="row p-0 m-0 bg-secondary rounded-pill ">
-                <label class="col-6 offset-1 p-0 fw-light lh-base fs-6 d-flex justify-content-center align-items-center">Monthly Payment</label>
+                <div class="col-6 offset-1 p-0 fw-light lh-base fs-6 d-flex justify-content-center align-items-center">Monthly Payment</div>
                 <div class="col offset-1 p-0 d-flex align-items-center fs-5">{{ monthlyPayment }}<span style="font-size: 14px;">€</span></div>
               </div>
             </div>

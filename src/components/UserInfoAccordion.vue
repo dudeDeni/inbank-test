@@ -20,13 +20,13 @@
       </div>
       <div v-else="!formEdit" class="border border-4 border-light" style="border-radius: 35px">
         <div class="py-3 d-flex justify-content-between align-items-center bg-info" style="border-radius: 30px 30px 0px 0px;">
-          <div class="col-6 offset-3" style="font-size: 18px;">Anna Maria Tamm Rodriguez Espinosa</div>
+          <div class="col-7 offset-3 text-center"><span style="font-size: 18px;">Anna Maria Tamm Rodriguez Espinosa</span></div>
           <div class="col-1 ">
             <button class="bg-textWhite rounded-circle border-0 " style="width: 31px;height: 31px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" @click="editForm()"><i class="bi bi-pen-fill"></i></button>
           </div>
         </div>
         <div id="collapseOne" class="py-2 accordion-collapse collapse show" data-bs-parent="#accordionExample">
-          <div class="row m-0 text-center ">
+          <div class="row m-0 text-center fs-6">
             <div class="col">
               <i class="bi bi-person-bounding-box mx-1"></i>{{userData.id_code}}
             </div>
