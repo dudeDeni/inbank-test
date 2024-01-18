@@ -96,6 +96,7 @@ const formData = ref({
   pepCheck: '',
   beneficiaryCheck: ''
 })
+
 </script>
 
 <style scoped>

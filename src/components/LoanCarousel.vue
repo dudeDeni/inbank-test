@@ -1,9 +1,9 @@
 <template>
   <!-- Carusel for the loan -->
-  <div id="carousel1" class="carousel slide carousel-fade" data-bs-touch="false">
+  <div ref="carousel" id="carousel1" class="carousel slide carousel-fade" data-bs-touch="false">
     <div class="bg-primary text-textWhite rounded-pill py-2 gx-2 d-flex" >
       <div class="carousel-inner overflow-visible" >
-        <div class="carousel-item active">
+        <div ref="slide1" class="carousel-item active">
           <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true" style="height: 13px;"></span>
             <span class="visually-hidden">Previous</span>
@@ -18,19 +18,21 @@
           </div>
         </div>
 
-        <div class="carousel-item" style="height: 40px;">
+        <div ref="slide2" class="carousel-item" style="height: 40px;" >
           <div class="row align-items-center text-left m-0 px-0" style="height: 40px;">
             <div class="col-4 p-0">
               <div class="fw-light lh-base fs-6 row text-end">
-                
-                <label class="col-5 px-0 fw-light lh-base fs-6 d-flex align-items-center justify-content-end">Amount</label>
+                <div class="col-5 px-0 position-relative">
+                  <label class="fw-light lh-base fs-6 d-flex align-items-center justify-content-end">Amount</label>
+                  <span v-show="!selectedAmount" class="text-danger position-absolute w-100 bottom-20 start-0" style="font-size: 10px;">Out of range</span>
+                </div>
                 <!-- Example split danger button -->
                 <div class="btn-group col-6 offset-1">
                   <div class="row p-0">
-                    <input type="text" v-model="selectedAmount" id="amount" class="col form-control bg-transparent border-0 border-bottom border-textWhite text-textWhite p-0 rounded-0" style="width: 47px;">
-                    <div class="col border-bottom border-textWhite p-0">€</div>
+                    <input type="text" v-model="selectedAmount" id="amount" class="col form-control bg-transparent border-0 border-bottom border-textWhite text-textWhite p-0 rounded-0" style="width: 47px;height: 25px;">
+                    <div class="col border-bottom border-textWhite p-0" style="height: 25px;">€</div>
                   </div>
-                  <div class="dropdown-toggle-split mx-2" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-chevron-down"></i></div>
+                  <div class="dropdown-toggle-split mx-2 d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-chevron-down"></i></div>
                   <ul class="dropdown-menu px-2" style="overflow: scroll;height: 166px;">
                     <li v-for="(amount, index) in amounts" :key="index" @click="submitValue(amount.value, 'amount')">
                       <div v-if="amount.ismin || amount.ismax" class="dropdown-item d-flex justify-content-between">
@@ -82,8 +84,8 @@
               </div>
             </div>
           </div>
-
-          <button class="col carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+          
+          <button :disabled="!selectedAmount" class="col carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
             <div class="bg-white rounded-pill" style="height: 2rem;">
               <span class="carousel-control-next-icon" aria-hidden="true" style="height: 15px;margin-top: 0.5rem;"></span>
               <span class="visually-hidden">Next</span>
@@ -102,11 +104,17 @@ const selectedMonths = ref(36)
 const monthlyPayment = ref((selectedAmount.value/selectedMonths.value).toFixed(2))
 
 const submitValue = (value, field) => {
-  console.log(value, field)
   if (field === 'amount') {
     selectedAmount.value = value
   } else if (field === 'month') {
     selectedMonths.value = value
+  }
+}
+
+const checkAmount = () => {
+  if (!selectedAmount) {
+    console.log(clicked)
+
   }
 }
 
