@@ -5,15 +5,7 @@
     <!-- Form starts here -->
     <form @submit.prevent="submitForm">
       <!-- User information display -->
-      <div class="mb-3 user-info">
-        <div class="d-flex justify-content-between">
-          <h3>Anna Maria Tamm Rodriguez Espinosa</h3>
-          <button type="button" class="btn btn-link"><i class="bi bi-pen-fill"></i></button>
-        </div>
-        <p class="text-muted">
-          38912052254 / +372 5289 6572 / anna.tamm@gmail.com
-        </p>
-      </div>
+      <UserInfoAccordion />
 
       <!-- Personal information section -->
       <div class="mb-3">
@@ -82,6 +74,7 @@
 
 <script setup>
 import LoanCarousel from './LoanCarousel.vue'
+import UserInfoAccordion from './UserInfoAccordion.vue'
 import { ref } from 'vue'
 
 const formData = ref({

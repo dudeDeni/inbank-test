@@ -1,12 +1,11 @@
 <template>
   <!-- Carusel for the loan -->
-  <div ref="carousel" id="carousel1" class="carousel slide carousel-fade" data-bs-touch="false">
+  <div ref="carousel" id="carousel1" class="carousel slide carousel-fade mb-4" data-bs-touch="false">
     <div class="bg-primary text-textWhite rounded-pill py-2 gx-2 d-flex" >
       <div class="carousel-inner overflow-visible" >
         <div ref="slide1" class="carousel-item active">
           <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true" style="height: 13px;"></span>
-            <span class="visually-hidden">Previous</span>
           </button>
           <div class="row align-items-center m-0 px-0">
             <div class="col-6 d-flex justify-content-end">
@@ -24,7 +23,8 @@
               <div class="fw-light lh-base fs-6 row text-end">
                 <div class="col-5 px-0 position-relative">
                   <label class="fw-light lh-base fs-6 d-flex align-items-center justify-content-end">Amount</label>
-                  <span v-show="!selectedAmount" class="text-danger position-absolute w-100 bottom-20 start-0" style="font-size: 10px;">Out of range</span>
+                  <span v-show="hasError" class="text-danger position-absolute w-100 bottom-20 start-0" style="font-size: 10px;">Out of range</span>
+                  <span v-show="rangeAmount" class="text-textWhite position-absolute w-100 bottom-20 start-0" style="font-size: 10px;">200 - 10 000 €</span>
                 </div>
                 <!-- Example split danger button -->
                 <div class="btn-group col-6 offset-1">
@@ -85,7 +85,7 @@
             </div>
           </div>
           
-          <button :disabled="!selectedAmount" class="col carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+          <button :disabled="!selectedAmount || rangeAmount || hasError" class="col carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next" @mouseover="checkAmount()">
             <div class="bg-white rounded-pill" style="height: 2rem;">
               <span class="carousel-control-next-icon" aria-hidden="true" style="height: 15px;margin-top: 0.5rem;"></span>
               <span class="visually-hidden">Next</span>
@@ -102,6 +102,8 @@ import { ref, watch } from 'vue'
 const selectedAmount = ref(200)
 const selectedMonths = ref(36)
 const monthlyPayment = ref((selectedAmount.value/selectedMonths.value).toFixed(2))
+const hasError = ref(false)
+const rangeAmount = ref(false)
 
 const submitValue = (value, field) => {
   if (field === 'amount') {
@@ -112,14 +114,23 @@ const submitValue = (value, field) => {
 }
 
 const checkAmount = () => {
-  if (!selectedAmount) {
-    console.log(clicked)
-
+  if (!selectedAmount.value) {
+    rangeAmount.value = false
+    hasError.value = true
   }
+  if (selectedAmount.value < amounts[0].value) {
+    rangeAmount.value = false
+    hasError.value = true
+  }
+  
 }
 
 watch([selectedAmount, selectedMonths], (newValues, prevValues) => {
   monthlyPayment.value = (selectedAmount.value/selectedMonths.value).toFixed(2)
+  hasError.value = false
+  if (selectedAmount.value < amounts[0].value) {
+    rangeAmount.value = true
+  }
 })
 const months = [12,24,36,48]
 // thank you chatGPT )))

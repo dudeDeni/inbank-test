@@ -10,7 +10,9 @@ $theme-colors: (
   "textWhite": $textWhite,
   "transparent": $transparent,
   "danger": #EB5757,
-  // "info":       $info,
+  "info": #F8F5FC,
+  "light": #F3EEFB,
+  "grey": #9C9C9C,
   // "warning":    $warning,
   // "light":      $light,
   // "dark":       $dark
@@ -39,6 +41,9 @@ $carousel-transition: transform $carousel-transition-duration ease-in-out;
 $carousel-control-prev-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#FDFDFD'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>");
 $carousel-control-next-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#2B0A57'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
 // ================================
+// Accordion
+$accordion-transition-duration: .1s;
+$accordion-transition:  border-radius 1.15s ease;
 // Fonts
 $h5-font-size: 20px;
 $h6-font-size: 14px;
@@ -46,3 +51,4 @@ $h6-font-size: 14px;
 body {
   background-color: $textWhite;
 }
+
