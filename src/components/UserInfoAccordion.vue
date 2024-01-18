@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4" id="accordionExample">
+  <div class="mb-5" id="accordionExample">
     <div class="">
       <div v-if="formEdit" class="py-3 d-flex justify-content-between align-items-center w-100 bg-info rounded-pill border-4 border-info">
         <div class="col-4 fs-6 d-flex justify-content-center" >

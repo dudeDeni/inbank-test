@@ -1,7 +1,7 @@
 <template>
-  <div class="position-relative">
+  <div class="position-relative w-100">
     <div :class="labelClass">
-      <label class="fs-6"> {{ label }}</label>
+      <label :for="id" class="fs-6"> {{ label }}</label>
     </div>
     <input 
       :type="type" 
@@ -48,7 +48,7 @@ const toggle = (event) => {
 }
 
 const labelClass = computed(() => ({
-  'position-absolute bg-textWhite': true,
+  'position-absolute bg-textWhite rounded-3': true,
   'px-1': true,
   'up': isActive.value,
   'down': !isActive.value
@@ -58,7 +58,7 @@ const labelClass = computed(() => ({
 <style scoped>
 .up {
   top: -0.9rem;
-  left: 1rem;
+  left: 0.5rem;
   transition: all 0.2s ease-out;
 }
 

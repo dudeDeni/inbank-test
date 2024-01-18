@@ -7,8 +7,9 @@
       <UserInfoAccordion />
 
       <!-- Personal information section -->
-      <label>Personal Information</label><br>
-      
+      <label class="mb-4 mx-3">Personal Information</label>
+      <ManualForm />
+      <!-- <OptionForm /> -->
 
       <CheckboxManual @check-manually="toggleManualFields"/>
 
@@ -22,8 +23,8 @@
         <label class="form-check-label" for="beneficiaryCheck">I'm the ultimate beneficiary</label>
       </div>
 
-      <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary">Continue</button>
+      <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary col-6">Continue</button>
       </div>
     </form>
 
@@ -34,8 +35,9 @@
 import CheckboxManual from './CheckboxManual.vue';
 import LoanCarousel from './LoanCarousel.vue';
 import UserInfoAccordion from './UserInfoAccordion.vue';
-import Input from './reusables/Input.vue';
+import ManualForm from './forms/ManualForm.vue';
 import { ref } from 'vue'
+import OptionForm from './forms/OptionForm.vue';
 
 const formData = ref({
   country: '',
@@ -61,6 +63,7 @@ const toggleManualFields = (isChecked) => {
 <style scoped>
 .loan-form {
   max-width: 764px;
+  width: 100%;
 }
 
 </style>

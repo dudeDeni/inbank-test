@@ -1,7 +1,7 @@
 <template>
   <div class="mb-3">
     <label for="country" class="form-label">Country</label>
-    <select id="country" class="form-select" v-model="formData.country">
+    <select id="country" class="form-select" v-model="props.country">
       <option selected>World</option>
       <!-- Populate with actual country options -->
     </select>
