@@ -68,7 +68,6 @@ const fields = ref({
 })
 
 const updateField = (event, targetField) => {
-  console.log(typeof(event), targetField)
   fields.value[targetField] = event
   const payload = {
     target: targetField,

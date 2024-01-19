@@ -39,17 +39,9 @@
 
       <CheckboxManual @check-manually="toggleManualFields"/>
 
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="pepCheck" v-model="formData.pepCheck">
-        <label class="form-check-label" for="pepCheck">Neither I nor my family member is PEP</label>
-      </div>
+      <BeneficiaryForm />
 
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="" id="beneficiaryCheck" v-model="formData.beneficiaryCheck">
-        <label class="form-check-label" for="beneficiaryCheck">I'm the ultimate beneficiary</label>
-      </div>
-
-      <div class="row justify-content-center">
+      <div class="row justify-content-center my-5">
         <button type="submit" class="btn btn-primary col-6">Continue</button>
       </div>
     </form>
@@ -62,8 +54,9 @@ import CheckboxManual from './CheckboxManual.vue';
 import LoanCarousel from './LoanCarousel.vue';
 import UserInfoAccordion from './UserInfoAccordion.vue';
 import ManualForm from './forms/ManualForm.vue';
-import { ref } from 'vue'
 import OptionForm from './forms/OptionForm.vue';
+import BeneficiaryForm from './forms/BeneficiaryForm.vue';
+import { ref } from 'vue'
 
 
 const formData = ref({
@@ -91,6 +84,10 @@ const toggleManualFields = (isChecked) => {
 
 const updateFields = (payload) => {
   formData.value[payload.target] = payload.value
+}
+
+const submitForm = () => {
+  //supposed to validate fields...
 }
 
 </script>

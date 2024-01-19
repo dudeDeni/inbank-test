@@ -11,5 +11,33 @@
 body {
   background-color: #FDFDFD;
   font-family: Open Sans;
-  
+}
+
+#beneficiaryCheck {
+  width: 24px;
+  height: 24px;
+}
+#pepCheck {
+  width: 24px;
+  height: 24px;
+}
+#isOwnerPep {
+  width: 24px;
+  height: 24px;
+}
+
+#beneficiaryCheck:checked {
+  background-color: #3A156C;
+  border-color: #3A156C;
+  color: #3A156C;
+}
+#pepCheck:checked {
+  background-color: #3A156C;
+  border-color: #3A156C;
+  color: #3A156C;
+}
+#isOwnerPep:checked {
+  background-color: #3A156C;
+  border-color: #3A156C;
+  color: #3A156C;
 }

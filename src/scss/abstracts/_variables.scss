@@ -53,6 +53,11 @@ $input-focus-bg: #FDFDFD;
 $input-focus-width:0;
 $input-focus-box-shadow: #FDFDFD;
 $input-disabled-bg: $textWhite;
+// Modal
+$modal-backdrop-bg: $textWhite;
+$modal-backdrop-opacity: .8;
+$modal-md: 505px;
+$modal-content-border-radius: 20px;
 // Fonts
 $h5-font-size: 20px;
 $h6-font-size: 14px;
@@ -60,4 +65,5 @@ $h6-font-size: 14px;
 body {
   background-color: $textWhite;
 }
+
 
