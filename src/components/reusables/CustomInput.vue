@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative w-100">
+  <div class="position-relative w-100 fw-lighter" :class="{'text-greyLight': disabled}">
     <div v-if="label" :class="labelClass">
       <label :for="id" class="fs-6"> {{ label }}</label>
     </div>
@@ -10,9 +10,11 @@
       @input="update($event.target.value)"
       v-bind="$attrs"
       class="form-control"
+      :class="{'border border-primary': props.modelValue != '' && !props.modelValue}"
       @focus="toggle('focus')"
       @blur="toggle('blur')"
       :autocomplete="type"
+      :disabled="disabled"
     />
   </div>
 </template>
@@ -31,6 +33,10 @@ const props = defineProps({
   id: {
     type: String,
     default: '',
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
   modelValue: {
     type: [String, null],

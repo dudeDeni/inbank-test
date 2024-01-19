@@ -1,7 +1,7 @@
 <template>
   <div class="row g-3 mb-3">
     <div class="col">
-      <CustomInput :label="'Country'" :type="'text'" :id="'country'" :model-value="fields.country" @update="updateField($event, 'country')"/>
+      <CustomInput :disabled="true" :label="'Country'" :type="'text'" :id="'country'" :model-value="fields.country" @update="updateField($event, 'country')"/>
     </div>
     <div class="col">
       <CustomInput :label="'County'" :type="'county'" :id="'county'" :model-value="fields.county" @update="updateField($event, 'county')"/>
@@ -12,7 +12,7 @@
       <CustomInput :label="'City/Parish'" :type="'address-level1'" :id="'address-level1'" :model-value="fields.city" @update="updateField($event, 'city')"/>
     </div>
     <div class="col">
-      <CustomInput :label="'Township/Village'" :type="'town'" :id="'town'" :model-value="fields.townShip" @update="updateField($event, 'town')"/>
+      <CustomInput :label="'Township/Village'" :type="'town'" :id="'town'" :model-value="fields.townShip" @update="updateField($event, 'townShip')"/>
     </div>
   </div>
   <div class="row g-3 mb-3">

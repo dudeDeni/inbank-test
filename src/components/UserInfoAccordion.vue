@@ -25,7 +25,7 @@
             <button class="bg-textWhite rounded-circle border-0 " style="width: 31px;height: 31px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" @click="editForm()"><i class="bi bi-pen-fill"></i></button>
           </div>
         </div>
-        <div id="collapseOne" class="py-2 accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div id="collapseOne" class="py-3 accordion-collapse collapse show" data-bs-parent="#accordionExample">
           <div class="row m-0 text-center fs-6">
             <div class="col">
               <i class="bi bi-person-bounding-box mx-1"></i>{{userData.id_code}}

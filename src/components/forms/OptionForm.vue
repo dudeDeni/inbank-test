@@ -1,46 +1,49 @@
 <template>
-  <div class="mb-3">
-    <label for="country" class="form-label">Country</label>
-    <select id="country" class="form-select" v-model="props.country">
-      <option selected>World</option>
-      <!-- Populate with actual country options -->
-    </select>
-  </div>
-
-  <div class="row g-3 mb-3">
-    <div class="col-md">
-      <label for="city" class="form-label">City / Parish</label>
-      <input type="text" id="city" class="form-control" v-model="props.city">
+  <div>
+    <div class="row g-3 mb-3">
+      <div class="col">
+        <CustomInput :disabled="true" :label="'Country'" :type="'text'" :id="'country'" :model-value="fields.country" @update="updateField($event, 'country')"/>
+      </div>
+      <div class="col">
+        <CustomSelect :label="'County'" :id="'county'" :items="props.counties" :model-value="fields.county" @update="updateField($event, 'county')"/>
+      </div>
     </div>
-    <div class="col-md">
-      <label for="county" class="form-label">County</label>
-      <input type="text" id="county" class="form-control" v-model="props.county">
+    <div class="row g-3 mb-3">
+      <div class="col">
+        <CustomSelect :label="'City/Parish'" :id="'address-level1'" :items="props.cities" :model-value="fields.city" @update="updateField($event, 'city')"/>
+      </div>
+      <div class="col">
+        <CustomSelect :label="'Township/Village'" :id="'town'" :items="props.towns" :model-value="fields.townShip" @update="updateField($event, 'town')"/>
+      </div>
     </div>
-  </div>
-
-  <div class="row g-3 mb-3">
-    <div class="col-md">
-      <label for="street" class="form-label">Street</label>
-      <input type="text" id="street" class="form-control" v-model="props.street">
-    </div>
-
-    <div class="col-md-4">
-      <label for="house" class="form-label">House</label>
-      <input type="text" id="house" class="form-control" v-model="props.house">
-    </div>
-
-    <div class="col-md-4">
-      <label for="apartment" class="form-label">Apartment</label>
-      <input type="text" id="apartment" class="form-control" v-model="props.apartment">
-    </div>
-    <div class="col-md-4">
-      <label for="postalCode" class="form-label">Postal Code</label>
-      <input type="text" id="postalCode" class="form-control" v-model="props.postalCode">
+    <div class="row g-3 mb-3">
+      <div class="col">
+        <CustomInput :label="'Street'" :type="'address-line1'" :id="'address-line1'" :model-value="fields.street" @update="updateField($event, 'street')"/>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <CustomInput :label="'House'" :type="'house'" :id="'house'" :model-value="fields.house" @update="updateField($event, 'house')"/>
+          </div>
+          <div class="col">
+            <CustomInput :label="'Apartment'" :type="'apartment'" :id="'apartment'" :model-value="fields.apartment" @update="updateField($event, 'apartment')"/>
+          </div>
+          <div class="col">
+            <CustomInput :label="'Postal Code'" :type="'postal_code'" :id="'postal_code'" :model-value="fields.postalCode" @update="updateField($event, 'postalCode')"/>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import CustomSelect from '../reusables/CustomSelect.vue';
+import CustomInput from '../reusables/CustomInput.vue';
+import { ref } from 'vue'
+
+const emit = defineEmits(['update'])
+
 const props = defineProps({
   country: String,
   city: String,
@@ -49,5 +52,29 @@ const props = defineProps({
   house: String,
   apartment: String,
   postalCode: String,
+  cities: Array,
+  counties: Array,
+  towns: Array
 })
+const fields = ref({
+  country: props.country,
+  city: props.city,
+  county: props.county,
+  townShip: props.townShip,
+  street: props.street,
+  house: props.house,
+  apartment: props.apartment,
+  postalCode: props.postalCode
+})
+
+const updateField = (event, targetField) => {
+  console.log(typeof(event), targetField)
+  fields.value[targetField] = event
+  const payload = {
+    target: targetField,
+    value: event
+  }
+
+  emit('update', payload)
+}
 </script>

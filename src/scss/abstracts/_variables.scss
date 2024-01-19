@@ -3,6 +3,7 @@ $primary: #2B0A57;
 $secondary: #3A156C;
 $textWhite: #FDFDFD;
 $transparent: transparent;
+$grayLight: #E9E9E9;
 
 $theme-colors: (
   "primary": $primary,
@@ -13,7 +14,7 @@ $theme-colors: (
   "info": #F8F5FC,
   "light": #F3EEFB,
   "grey": #9C9C9C,
-  "greyLight": #E9E9E9,
+  "greyLight": $grayLight,
   "green": #53CBA0,
   // "warning":    $warning,
   // "light":      $light,
@@ -51,6 +52,7 @@ $form-check-input-focus-box-shadow: #FDFDFD;
 $input-focus-bg: #FDFDFD;
 $input-focus-width:0;
 $input-focus-box-shadow: #FDFDFD;
+$input-disabled-bg: $textWhite;
 // Fonts
 $h5-font-size: 20px;
 $h6-font-size: 14px;
